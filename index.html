@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Comic</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css" integrity="sha512-NfxiSgR2lr6i8owg0nC77pPS6fNQAmQ6Gv+mIinI9Ri3IO7ff7+lIjV63Usgu8f1cp7oj+LZaUM6R81+lU+Vpw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		.carousel-cell {
+			width: 100%;
+			height: calc(100vh - 80px);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-color: #333;
+		}
+
+		.carousel-cell img {
+			display: none;
+			max-height: calc(100vh - 80px);
+			max-width: 100%;
+			object-fit: contain;
+			object-position: center center;
+			margin: auto;
+		}
+
+		.carousel-cell.is-selected img {
+			display: block;
+		}
+
+		.carousel-cell.is-selected {
+			cursor: url("https://cdn.rawgit.com/peachananr/onepage-scroll/master/examples/images/arrow.png"), auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel" data-flickity='{ "wrapAround": true }'>
+		<!-- Here, add each image as a carousel cell -->
+		<div class="carousel-cell" style="background-image: url('https://doc-08-4o-docs.googleusercontent.com/docs/securesc/51gkgnj54f7hnoqotdldohk0u2dmuh88/37s0g75ouuthnv2ad6rrmsgt58ikrp9b/1683930150000/07771407089439840947/11826247363667140814/1cKka_JqnTCfYztwzk0Y5NQNl68IkNVxi?ax=ADWCPKA9Jy36LL5-Gi6p_bFcEJXymb5IyKfO9i59eAk-NenwRxm7ZUUilaU06DyEzPud8RgCmmJudGJcozN5dgJVvd06dsfvUkfxxRWNELRsSXO2wFyGzv7R2sHRSd45ZL9zkqVCPCiDLuy3LhUHjl-2D5fVqp7uR4Qa9BPxhmyAslAxKcBPnKCpp5G_xaVc1d3nNuQ9Rh1hsJZ5Bbq0utytsPqNMvgmSTLSf8FxpFuk4EDtN45Gev-u1FEK677iEqTnQR6IVZHpD_KYJnnRv2OqKKjlOWdrzzSIwkPLhoZX7yK6yTidqUpnwETxTrfXq5ehe1viRCCoR9hyd7doF9eLpK1OssvpEq0tLVajb0QFJqmH6WeCq_2esYJ6LiJi5enagH1264rx3jXe9wmgzla-8oklKdzJPd-kSn28oL9pQaXeo7f-R1A0bH0Br1swjxLhBCOSNCur97IESB9atmXY62FLIzrvvO6Qm6uRSiqppEoInJBBzToX8zUhwcGoJzATV-A-NT7WcwUcQ32UYTPasGB2RKxDKnDzcH_J5UXnkW71ol0hZtOUAbs7HEISlUs6_CYqpRginnhNKFfejIlXtqQFE4lmyTyqhw70l0qsg9VHa-Wyd4RYvlUGBZUark54RbFz52RygdGub4LcL7iAbjYl-kYrO-xIpZK0IlCopzeQpdUnjNpe1oNgiQAxV09IYMAeqwBWoDPjKPFt87cwrNdMaInIeFjaDcvVhunRw5h8DD6sdG39CzwV1XTQmnswmaT_dDm0ivmVYhxz-Nd1kemiYq3EwlEGcCZr94KA2HiMDAON1DgcYPo7R6sHhrbND2s9mDmQwcLfs-EHGFF3L4oBu7GvDr_tBv_0xuDwpz7BPql5GgDwiOimcS9RGIo8OMJigXLekFWFY1uqK7CFpn4CgAyaYRM8X3gP0X4mwZntVCY5gg2mqGrDoQvOnKOa3gaM9UHuU_kfGX9xtnIr179gr42w_P3qO2BRvJMore_W&uuid=39d37afe-28c7-459c-a38d-bac3b2aaa173&authuser=0)">
+			<img src="https://doc-08-4o-docs.googleusercontent.com/docs/securesc/51gkgnj54f7hnoqotdldohk0u2dmuh88/37s0g75ouuthnv2ad6rrmsgt58ikrp9b/1683930150000/07771407089439840947/11826247363667140814/1cKka_JqnTCfYztwzk0Y5NQNl68IkNVxi?ax=ADWCPKA9Jy36LL5-Gi6p_bFcEJXymb5IyKfO9i59eAk-NenwRxm7ZUUilaU06DyEzPud8RgCmmJudGJcozN5dgJVvd06dsfvUkfxxRWNELRsSXO2wFyGzv7R2sHRSd45ZL9zkqVCPCiDLuy3LhUHjl-2D5fVqp7uR4Qa9BPxhmyAslAxKcBPnKCpp5G_xaVc1d3nNuQ9Rh1hsJZ5Bbq0utytsPqNMvgmSTLSf8FxpFuk4EDtN45Gev-u1FEK677iEqTnQR6IVZHpD_KYJnnRv2OqKKjlOWdrzzSIwkPLhoZX7yK6yTidqUpnwETxTrfXq5ehe1viRCCoR9hyd7doF9eLpK1OssvpEq0tLVajb0QFJqmH6WeCq_2esYJ6LiJi5enagH1264rx3jXe9wmgzla-8oklKdzJPd-kSn28oL9pQaXeo7f-R1A0bH0Br1swjxLhBCOSNCur97IESB9atmXY62FLIzrvvO6Qm6uRSiqppEoInJBBzToX8zUhwcGoJzATV-A-NT7WcwUcQ32UYTPasGB2RKxDKnDzcH_J5UXnkW71ol0hZtOUAbs7HEISlUs6_CYqpRginnhNKFfejIlXtqQFE4lmyTyqhw70l0qsg9VHa-Wyd4RYvlUGBZUark54RbFz52RygdGub4LcL7iAbjYl-kYrO-xIpZK0IlCopzeQpdUnjNpe1oNgiQAxV09IYMAeqwBWoDPjKPFt87cwrNdMaInIeFjaDcvVhunRw5h8DD6sdG39CzwV1XTQmnswmaT_dDm0ivmVYhxz-Nd1kemiYq3EwlEGcCZr94KA2HiMDAON1DgcYPo7R6sHhrbND2s9mDmQwcLfs-EHGFF3L4oBu7GvDr_tBv_0xuDwpz7BPql5GgDwiOimcS9RGIo8OMJigXLekFWFY1uqK7CFpn4CgAyaYRM8X3gP0X4mwZntVCY5gg2mqGrDoQvOnKOa3gaM9UHuU_kfGX9xtnIr179gr42w_P3qO2BRvJMore_W&uuid=39d37afe-28c7-459c-a38d-bac3b2aaa173&authuser=0" alt="Page 1">
+		</div>
+		<div class="carousel-cell" style="background-image: url('https://doc-0s-4o-docs.googleusercontent.com/docs/securesc/51gkgnj54f7hnoqotdldohk0u2dmuh88/gf18tc63asoabm6lgqcv5tt1lrg7jsgm/1683929925000/07771407089439840947/11826247363667140814/1cNbhasgovJ0pXQPEjhlRc9gzAgs2Yz0i?ax=ADWCPKAvpI-hJU0Fcmy0OZ3Xrdj1nG5uwniqlgYTdViwTVTFpHS5hYJwf4A1YcvHedb_rDhZS9Zw39C14UsRK8AmAxsRA38EOhVDFlY2PWcqowa-VnArqfYW3xyJ1r2ho6pGnlExbw4ueob3qD9QsLI7e98kpS3u72ofwcT2SFVujjbDDr_TGL5SOtTRrxUTE4LuE0wEGYJ1FtPOSQm6TBBkm0ni5Ciz12Kgnpc5IEFhYWxsni_QcHrXT1v_YW42P1jPfk7Ac4Iqvo2UUK2p-d68bw2rVw4MXIim3mjZgKoqslBl3JEBPBHcq0VdYVg_UUlni91nuZllV3FeaZzGmmF9ZidlEAW_qI_xrc-zeW9VWrIuvXJWTw9l4L3PlLj1jzsTp4PAx9mXFHJp3TmGThx4LfCXsZupuc7FeTBCWFlka6OBo901mXYpq4ARMUaesF-JXS1cgWtAjlygb8DlphwOePWRCg0NL0_WdVpm0ghM00FH3TeQaCCUjfDLQekCRitAe5W0v4VvodgpdHoboQAJEyNwTsianBpiRGTTCYlKP67Sdcos6YHRij2uuh8mraEu5fjhPMJL1kpUCn_X6_Zv5kM8HX8huC_H9dEAVO29XKzleGePLquTFLl-0DApS9IWnr5lelYGUUcNRepZ5aPia0qzNhRfo7eSZAZ21Rse1G2jOAsSVYTvlf7UnR3eamjMTFgCt_t7YhwRdBaPlOlzQssrDcwPFJjPM4jNbhVzIVwc471yzgv2fMOQHYyKix7rUgHWRMQHDn0bUFzcWreZuRTNUsq-qCBEg7H8sb0bFz9Rxp5cS9G3Qv6H8nmnnM6iDll_LPZcjGK0AcGWHhut9mP48ChL9c43UGvbtxHwkQas5cEqlmym4Sk4XKacqaKZkxxL-Yjq9s5lCuk6DuK5ddQkIgfyWjMUKeFIh0mjtAIx0StQNIcLuUoFsQcdb9mgc-6AIVHm7TZGVLC1xZOl-U02kmfOY0rLtrfNlx08Swoj&uuid=7a08695e-2bed-48bf-bde1-2db6a3bc05db&authuser=0&nonce=c467fgrejqje6&user=11826247363667140814&hash=kggins612a0u53c3iresk24fouo13k6l')">
+			<img src="https://doc-0s-4o-docs.googleusercontent.com/docs/securesc/51gkgnj54f7hnoqotdldohk0u2dmuh88/gf18tc63asoabm6lgqcv5tt1lrg7jsgm/1683929925000/07771407089439840947/11826247363667140814/1cNbhasgovJ0pXQPEjhlRc9gzAgs2Yz0i?ax=ADWCPKAvpI-hJU0Fcmy0OZ3Xrdj1nG5uwniqlgYTdViwTVTFpHS5hYJwf4A1YcvHedb_rDhZS9Zw39C14UsRK8AmAxsRA38EOhVDFlY2PWcqowa-VnArqfYW3xyJ1r2ho6pGnlExbw4ueob3qD9QsLI7e98kpS3u72ofwcT2SFVujjbDDr_TGL5SOtTRrxUTE4LuE0wEGYJ1FtPOSQm6TBBkm0ni5Ciz12Kgnpc5IEFhYWxsni_QcHrXT1v_YW42P1jPfk7Ac4Iqvo2UUK2p-d68bw2rVw4MXIim3mjZgKoqslBl3JEBPBHcq0VdYVg_UUlni91nuZllV3FeaZzGmmF9ZidlEAW_qI_xrc-zeW9VWrIuvXJWTw9l4L3PlLj1jzsTp4PAx9mXFHJp3TmGThx4LfCXsZupuc7FeTBCWFlka6OBo901mXYpq4ARMUaesF-JXS1cgWtAjlygb8DlphwOePWRCg0NL0_WdVpm0ghM00FH3TeQaCCUjfDLQekCRitAe5W0v4VvodgpdHoboQAJEyNwTsianBpiRGTTCYlKP67Sdcos6YHRij2uuh8mraEu5fjhPMJL1kpUCn_X6_Zv5kM8HX8huC_H9dEAVO29XKzleGePLquTFLl-0DApS9IWnr5lelYGUUcNRepZ5aPia0qzNhRfo7eSZAZ21Rse1G2jOAsSVYTvlf7UnR3eamjMTFgCt_t7YhwRdBaPlOlzQssrDcwPFJjPM4jNbhVzIVwc471yzgv2fMOQHYyKix7rUgHWRMQHDn0bUFzcWreZuRTNUsq-qCBEg7H8sb0bFz9Rxp5cS9G3Qv6H8nmnnM6iDll_LPZcjGK0AcGWHhut9mP48ChL9c43UGvbtxHwkQas5cEqlmym4Sk4XKacqaKZkxxL-Yjq9s5lCuk6DuK5ddQkIgfyWjMUKeFIh0mjtAIx0StQNIcLuUoFsQcdb9mgc-6AIVHm7TZGVLC1xZOl-U02kmfOY0rLtrfNlx08Swoj&uuid=7a08695e-2bed-48bf-bde1-2db6a3bc05db&authuser=0&nonce=c467fgrejqje6&user=11826247363667140814&hash=kggins612a0u53c3iresk24fouo13k6l" alt="Page 2">
+		</div>
+		<!-- Add more carousel cells for each page of your comic -->
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.pkgd.min.js" integrity="sha512-SjgP8i0mVcq5lGqZvobnE/5GxYHy9U9Uc5Rb6v1VebT9rq9Y0CQy/+kyNQsOZ0m9olHdRvTpGh2srnCMy2S+9A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
